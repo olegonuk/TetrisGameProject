@@ -1,7 +1,9 @@
+"""Tetris Game => Timer.py"""
 from pygame.time import get_ticks
 
 
 class Timer:
+    """Клас Timer"""
     def __init__(self, duration, repeated =False, func=None):
         self.repeated = repeated
         self.func = func
@@ -11,14 +13,17 @@ class Timer:
         self.active = False
 
     def activate(self):
+        """Метод активації таймера"""
         self.active = True
         self.start_time = get_ticks()
 
     def deactivate(self):
+        """Метод деактивації таймера"""
         self.active = False
         self.start_time = 0
 
     def update(self):
+        """Метод оновлення таймера"""
         current_time = get_ticks()
         if current_time - self.start_time >= self.duration and self.active:
 
